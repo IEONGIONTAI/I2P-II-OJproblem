@@ -29,7 +29,7 @@ int bfs(int start_x, int start_y) {
             dest_r = now_r + r[i];
             dest_c = now_c + c[i];
             //cout << '(' << dest_r << ',' << dest_c << ") " << dist;
-            if(dest_r < 0 || dest_r >= N || dest_c < 0 || dest_c >= M) continue; // bug?
+            if(dest_r < 0 || dest_r >= N || dest_c < 0 || dest_c >= M) continue; // fixed
             if(map[dest_r][dest_c] == 'C' ) continue;
             if(map[dest_r][dest_c] == 'T' ) {
                 tobeDestory--;
