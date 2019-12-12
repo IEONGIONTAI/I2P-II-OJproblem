@@ -7,24 +7,23 @@ namespace std
 	template<typename T> class vector {
 		public:
 			vector() {
-                arr = new T[1];
-                CAPACITY = 1;
-                SIZE = 0;
+                		arr = new T[1];
+                		CAPACITY = 1;
+                		SIZE = 0;
 			}
 			void push_back(T x) {
-                if (SIZE == CAPACITY) {
-                    int* temp = new T[2 * CAPACITY];
+                		if (SIZE == CAPACITY) {
+                    			T* temp = new T[2 * CAPACITY];
+                    			for (int i = 0; i < CAPACITY; i++) {
+                        			temp[i] = arr[i];
+                    			}
+				    delete[] arr;
+				    CAPACITY *= 2;
+				    arr = temp;
+				}
 
-                    for (int i = 0; i < CAPACITY; i++) {
-                        temp[i] = arr[i];
-                    }
-                    delete[] arr;
-                    CAPACITY *= 2;
-                    arr = temp;
-                }
-
-                arr[SIZE] = x;
-                SIZE++;
+				arr[SIZE] = x;
+				SIZE++;
 			}
 			void pop_back() {
                 arr[SIZE--] = NAN;
